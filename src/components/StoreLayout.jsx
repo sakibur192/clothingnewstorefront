@@ -1,17 +1,17 @@
 // ============================================================
 // STORE LAYOUT
 // ============================================================
-// Wraps every storefront page with theme context, cart/wishlist
-// context, header, announcement bar, footer, WhatsApp floating
-// button, recent-activity social-proof popup, and a mobile bottom
-// nav bar. forcedSubdomain is passed down from App.jsx when
-// running in "root mode" (a real custom domain).
+// Wraps every storefront page with theme context, cart/wishlist/
+// customer-account context, header, announcement bar, footer,
+// WhatsApp floating button, recent-activity social-proof popup,
+// and a mobile bottom nav bar.
 // ============================================================
 
 import { Outlet } from "react-router-dom";
 import { StoreProvider, useStore } from "../context/StoreContext";
 import { CartProvider } from "../context/CartContext";
 import { WishlistProvider } from "../context/WishlistContext";
+import { CustomerAuthProvider } from "../context/CustomerAuthContext";
 import Header from "./Header";
 import AnnouncementBar from "./AnnouncementBar";
 import Footer from "./Footer";
@@ -45,7 +45,9 @@ export default function StoreLayout({ forcedSubdomain }) {
     <StoreProvider forcedSubdomain={forcedSubdomain}>
       <CartProvider>
         <WishlistProvider>
-          <LayoutInner />
+          <CustomerAuthProvider>
+            <LayoutInner />
+          </CustomerAuthProvider>
         </WishlistProvider>
       </CartProvider>
     </StoreProvider>

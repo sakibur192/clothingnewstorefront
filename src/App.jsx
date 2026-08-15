@@ -31,6 +31,9 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Wishlist from "./pages/Wishlist";
 import TrackOrder from "./pages/TrackOrder";
+import CustomerLogin from "./pages/CustomerLogin";
+import CustomerRegister from "./pages/CustomerRegister";
+import CustomerAccount from "./pages/CustomerAccount";
 import { resolveByHost } from "./api/api";
 
 function Landing() {
@@ -75,6 +78,9 @@ export default function App() {
             <Route path="checkout" element={<Checkout />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="track-order" element={<TrackOrder />} />
+            <Route path="login" element={<CustomerLogin />} />
+            <Route path="register" element={<CustomerRegister />} />
+            <Route path="account" element={<CustomerAccount />} />
           </Route>
         </Routes>
       </BrowserRouter>
@@ -94,6 +100,9 @@ export default function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="wishlist" element={<Wishlist />} />
           <Route path="track-order" element={<TrackOrder />} />
+          <Route path="login" element={<CustomerLogin />} />
+          <Route path="register" element={<CustomerRegister />} />
+          <Route path="account" element={<CustomerAccount />} />
         </Route>
       </Routes>
     </BrowserRouter>

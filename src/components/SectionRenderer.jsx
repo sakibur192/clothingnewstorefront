@@ -10,6 +10,7 @@ import Hero from "./sections/Hero";
 import HeroSlider from "./sections/HeroSlider";
 import Banner from "./sections/Banner";
 import CategoryGrid from "./sections/CategoryGrid";
+import CategoryIconGrid from "./sections/CategoryIconGrid";
 import ProductGrid from "./sections/ProductGrid";
 import Testimonials from "./sections/Testimonials";
 import Newsletter from "./sections/Newsletter";
@@ -17,12 +18,17 @@ import TrustBadges from "./sections/TrustBadges";
 import PromoGrid from "./sections/PromoGrid";
 import FlashSale from "./sections/FlashSale";
 import InstagramGallery from "./sections/InstagramGallery";
+import BrandStory from "./sections/BrandStory";
+import PartnerLogos from "./sections/PartnerLogos";
+import AppPromoBar from "./sections/AppPromoBar";
+import CouponStrip from "./sections/CouponStrip";
 
 const SECTION_COMPONENTS = {
   hero: Hero,
   hero_slider: HeroSlider,
   banner: Banner,
   category_grid: CategoryGrid,
+  category_icon_grid: CategoryIconGrid,
   product_grid: ProductGrid,
   testimonials: Testimonials,
   newsletter: Newsletter,
@@ -30,6 +36,10 @@ const SECTION_COMPONENTS = {
   promo_grid: PromoGrid,
   flash_sale: FlashSale,
   instagram_gallery: InstagramGallery,
+  brand_story: BrandStory,
+  partner_logos: PartnerLogos,
+  app_promo_bar: AppPromoBar,
+  coupon_strip: CouponStrip,
 };
 
 export default function SectionRenderer({ sections }) {

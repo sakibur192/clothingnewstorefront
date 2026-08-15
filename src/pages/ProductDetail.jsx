@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import { getProduct, requestBackInStock } from "../api/api";
+import { getProduct, requestBackInStock, resolveImageUrl } from "../api/api";
 import { useStore } from "../context/StoreContext";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
@@ -20,6 +20,7 @@ export default function ProductDetail() {
   const [showSizeGuide, setShowSizeGuide] = useState(false);
   const [notifyEmail, setNotifyEmail] = useState("");
   const [notifySubmitted, setNotifySubmitted] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
   useEffect(() => {
     getProduct(subdomain, id)
@@ -33,6 +34,10 @@ export default function ProductDetail() {
       })
       .catch((err) => setError(err.message));
   }, [subdomain, id]);
+
+  useEffect(() => {
+    setGalleryIndex(0);
+  }, [selectedColor, selectedSize]);
 
   if (error) return <p className="store-error">{error}</p>;
   if (!product) return <p className="store-loading">Loading...</p>;
@@ -50,6 +55,12 @@ export default function ProductDetail() {
   const inStock = matchedVariant && matchedVariant.stock_quantity > 0;
   const wishlisted = wishlist?.isWishlisted(product.id);
 
+  const galleryImages = (matchedVariant?.image_urls && matchedVariant.image_urls.length > 0)
+    ? matchedVariant.image_urls
+    : matchedVariant?.image_url
+    ? [matchedVariant.image_url]
+    : [];
+
   function handleAddToCart() {
     if (!matchedVariant) return;
     cart.addItem(matchedVariant, product, 1);
@@ -59,11 +70,27 @@ export default function ProductDetail() {
 
   return (
     <div className="product-detail-page">
-      <div className="product-detail-image">
-        {matchedVariant?.image_url ? (
-          <img src={matchedVariant.image_url} alt={product.name} />
-        ) : (
-          <div className="product-card-placeholder large">{product.name.slice(0, 1)}</div>
+      <div>
+        <div className="product-detail-image">
+          {galleryImages.length > 0 ? (
+            <img src={resolveImageUrl(galleryImages[galleryIndex] || galleryImages[0])} alt={product.name} />
+          ) : (
+            <div className="product-card-placeholder large">{product.name.slice(0, 1)}</div>
+          )}
+        </div>
+        {galleryImages.length > 1 && (
+          <div className="gallery-thumbs">
+            {galleryImages.map((img, i) => (
+              <button
+                key={i}
+                type="button"
+                className={i === galleryIndex ? "gallery-thumb active" : "gallery-thumb"}
+                onClick={() => setGalleryIndex(i)}
+              >
+                <img src={resolveImageUrl(img)} alt="" />
+              </button>
+            ))}
+          </div>
         )}
       </div>
 

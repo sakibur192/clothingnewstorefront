@@ -239,6 +239,10 @@ button { cursor: pointer; font-family: inherit; }
 .product-detail-page { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .product-detail-image { aspect-ratio: 1; background: #f2f0eb; border-radius: 10px; overflow: hidden; }
 .product-detail-image img { width: 100%; height: 100%; object-fit: cover; }
+.gallery-thumbs { display: flex; gap: 8px; margin-top: 10px; }
+.gallery-thumb { width: 60px; height: 60px; border-radius: 6px; overflow: hidden; border: 2px solid transparent; padding: 0; background: #f2f0eb; cursor: pointer; }
+.gallery-thumb.active { border-color: var(--store-primary); }
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .product-detail-price { font-size: 26px; font-weight: 800; color: var(--store-primary); margin: 12px 0; }
 .product-attributes { font-size: 14px; color: #4b5563; padding-left: 18px; }
 
@@ -523,4 +527,165 @@ button { cursor: pointer; font-family: inherit; }
   .whatsapp-float {
     bottom: 76px;
   }
+}
+
+/* ============================================================
+   FABRILIFE-STYLE ADDITIONS
+   ============================================================ */
+
+/* ---------------- Shop dropdown (mega-menu-lite) ---------------- */
+
+.shop-dropdown-wrapper { position: relative; }
+.shop-dropdown-panel {
+  position: absolute; top: 100%; left: 0; background: #fff;
+  border: 1px solid #eee; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  padding: 10px 0; min-width: 200px; z-index: 60; display: flex; flex-direction: column;
+}
+.shop-dropdown-panel a { padding: 8px 18px; font-size: 13px; font-weight: 500; }
+.shop-dropdown-panel a:hover { background: #f7f5f2; color: var(--store-primary); }
+
+/* ---------------- App promo bar ---------------- */
+
+.section-app-promo-bar {
+  background: #111; color: #fff; padding: 10px 32px;
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.05em; flex-wrap: wrap;
+}
+.app-promo-badges { display: flex; gap: 10px; }
+.app-badge {
+  background: rgba(255,255,255,0.12); color: #fff; padding: 5px 14px;
+  border-radius: 999px; font-size: 11px; font-weight: 600;
+}
+.app-badge:hover { background: rgba(255,255,255,0.22); }
+
+/* ---------------- Category icon grid ("Find Your Things") ---------------- */
+
+.section-category-icon-grid { padding: 44px 32px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.section-category-icon-grid h2 { margin-bottom: 4px; }
+.section-subheading { color: #6b7280; font-size: 13px; margin-bottom: 24px; }
+.category-icon-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;
+}
+.category-icon-tile {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  width: 88px; font-size: 12px; font-weight: 600; text-align: center;
+}
+.category-icon-avatar {
+  width: 64px; height: 64px; border-radius: 50%; background: #f2f0eb;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; font-weight: 700; color: var(--store-primary);
+  border: 1px solid #eee;
+}
+.new-arrival-tile .category-icon-avatar { background: var(--store-accent); color: #fff; border: none; }
+.category-icon-tile:hover .category-icon-avatar { border-color: var(--store-primary); }
+
+/* ---------------- Brand story ---------------- */
+
+.section-brand-story {
+  max-width: 760px; margin: 0 auto; padding: 48px 32px; text-align: center;
+}
+.brand-story-tagline { font-weight: 600; color: var(--store-accent); margin-bottom: 8px; }
+.brand-story-body { color: #4b5563; line-height: 1.8; font-size: 14px; }
+
+/* ---------------- Product carousel ---------------- */
+
+.section-product-carousel { padding: 36px 32px; max-width: 1200px; margin: 0 auto; }
+.product-carousel-header {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;
+}
+.product-carousel-header h2 { margin: 0; }
+.view-more-link { font-size: 12px; font-weight: 700; color: var(--store-primary); white-space: nowrap; }
+.product-carousel-row {
+  display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory;
+}
+.product-carousel-item { flex: 0 0 200px; scroll-snap-align: start; }
+.product-carousel-viewmore {
+  flex: 0 0 140px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; background: #f7f5f2; border-radius: 10px; font-size: 13px; font-weight: 700;
+  color: var(--store-primary); scroll-snap-align: start;
+}
+.view-more-arrow { font-size: 20px; }
+
+/* ---------------- Partner logos ---------------- */
+
+.section-partner-logos { padding: 44px 32px; max-width: 1200px; margin: 0 auto; text-align: center; }
+.partner-logos-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 20px;
+}
+.partner-logo-tile {
+  width: 90px; height: 60px; display: flex; align-items: center; justify-content: center;
+  filter: grayscale(1); opacity: 0.7;
+}
+.partner-logo-tile img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.partner-logo-tile:hover { filter: none; opacity: 1; }
+
+@media (max-width: 720px) {
+  .section-product-carousel, .section-category-icon-grid, .section-brand-story, .section-partner-logos {
+    padding: 28px 16px;
+  }
+  .product-carousel-item { flex-basis: 160px; }
+}
+
+/* ============================================================
+   CUSTOMER ACCOUNT
+   ============================================================ */
+
+.auth-page-storefront {
+  min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
+}
+.auth-box-storefront {
+  background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 32px; width: 100%; max-width: 400px;
+}
+.auth-box-storefront h1 { margin-bottom: 4px; }
+
+.account-dropdown-wrapper { position: relative; }
+.account-dropdown-panel {
+  right: 0; left: auto; min-width: 180px; display: flex; flex-direction: column;
+}
+.account-dropdown-greeting { padding: 6px 18px; font-size: 12px; color: #6b7280; font-weight: 700; }
+.account-dropdown-panel button {
+  background: none; border: none; text-align: left; padding: 8px 18px; font-size: 13px; font-weight: 500; cursor: pointer; color: #b91c1c;
+}
+.account-dropdown-panel button:hover { background: #f7f5f2; }
+
+.account-header { display: flex; justify-content: space-between; align-items: center; }
+.account-tabs { display: flex; gap: 8px; margin: 20px 0; border-bottom: 1px solid #eee; }
+.account-tabs button {
+  background: none; border: none; padding: 10px 4px; margin-right: 20px; font-size: 14px; font-weight: 600;
+  color: #6b7280; border-bottom: 2px solid transparent; cursor: pointer;
+}
+.account-tabs button.active { color: var(--store-primary); border-bottom-color: var(--store-primary); }
+
+.order-status-badge {
+  display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; text-transform: capitalize;
+}
+.status-pending { background: #fef3c7; color: #92400e; }
+.status-confirmed { background: #dbeafe; color: #1e40af; }
+.status-packed { background: #e0e7ff; color: #3730a3; }
+.status-shipped { background: #cffafe; color: #155e75; }
+.status-delivered { background: #dcfce7; color: #166534; }
+.status-cancelled { background: #fee2e2; color: #991b1b; }
+.status-returned { background: #f3e8ff; color: #6b21a8; }
+
+/* ---------------- Coupon strip (Daraz-style vouchers) ---------------- */
+
+.section-coupon-strip { padding: 32px; max-width: 1200px; margin: 0 auto; }
+.section-coupon-strip h2 { text-align: center; margin-bottom: 18px; }
+.coupon-strip-row { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 6px; justify-content: center; flex-wrap: wrap; }
+.coupon-card {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px;
+  background: linear-gradient(135deg, var(--store-primary), var(--store-secondary));
+  color: #fff; border: none; border-radius: 10px; padding: 14px 20px; min-width: 150px; cursor: pointer;
+}
+.coupon-card::before, .coupon-card::after {
+  content: ""; position: absolute; top: 50%; width: 14px; height: 14px; background: var(--store-background);
+  border-radius: 50%; transform: translateY(-50%);
+}
+.coupon-card::before { left: -7px; }
+.coupon-card::after { right: -7px; }
+.coupon-card-value { font-size: 16px; font-weight: 800; }
+.coupon-card-condition { font-size: 10px; opacity: 0.85; }
+.coupon-card-code {
+  margin-top: 4px; background: rgba(255,255,255,0.2); border-radius: 4px; padding: 2px 10px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
 }

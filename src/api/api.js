@@ -5,7 +5,7 @@
 // login, no token - this is the public customer-facing site.
 // ============================================================
 
-const BASE_URL = "http://ygk4so4wkoos80ww0w0ws484.76.13.223.236.sslip.io";
+const BASE_URL = "http://localhost:5000";
 
 // Uploaded images are stored as relative URLs (e.g. /uploads/abc.png) -
 // this makes them loadable from the storefront app, which runs on a

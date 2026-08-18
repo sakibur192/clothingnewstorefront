@@ -5,7 +5,7 @@
 // login, no token - this is the public customer-facing site.
 // ============================================================
 
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://clothingnewbackend.onrender.com";
 
 // Uploaded images are stored as relative URLs (e.g. /uploads/abc.png) -
 // this makes them loadable from the storefront app, which runs on a
